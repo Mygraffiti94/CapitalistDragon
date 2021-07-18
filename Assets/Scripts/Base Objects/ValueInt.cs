@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Value/Int")]
-public class NewBehaviourScript : ScriptableObject
+public class ValueInt : Value
 {
 
 }
