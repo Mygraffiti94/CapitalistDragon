@@ -1,56 +1,123 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsContainer
-{
-	public List<ValueReference>	stats;
-
-	public StatsContainer()
-	{
-		stats = new List<ValueReference>();
-	}
-}
-
 public class Actor : MonoBehaviour
 {
-	public ValueStructure statStructure;
-	StatsContainer statList;
+	//------------------------------
+	// Declarations
+	//------------------------------
+	public ValueStructure	StatStructure;
+	public StatsContainer	statList;
+	public Value			GPValue;
+	public Value			STRValue;
+	public Value			WLTValue;
+	public Value			EXPValue;
 
-    // Start is called before the first frame update
     void Start()
     {
         Init();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+         if(Input.GetKeyDown(KeyCode.Z))
+		 {
+			statList.Add(GPValue, 5);
+			statList.Add(WLTValue, 1);
+			statList.Add(EXPValue, 1);
+		 }
+		 else if(Input.GetKeyDown(KeyCode.X))
+		 {
+			statList.Add(GPValue, -5);
+			statList.Add(WLTValue, -1);
+			statList.Add(EXPValue, -1);
+		 }
     }
 
+	#region Init Methods
 	void Init()
 	{
-		statList = new StatsContainer();
+		InitValues();
+		InitFormulas();
+	}
 
-		for(int i = 0; i < statStructure.values.Count; i++)
+	///----------------------------------------------------
+	/// <summary>
+	/// Initializes any formulas that may have been attached to the ValueBase items in the list of stats
+	/// </summary>
+	///----------------------------------------------------
+	private void InitFormulas()
+	{
+		foreach(ValueReference value in statList.stats)
 		{
-			if(statStructure.values[i] is ValueFloat)
+			if(value.valueBase.formula)
 			{
-				statList.stats.Add(new ValueFloatReference(statStructure.values[i], 0f));
-			}
-			else if(statStructure.values[i] is ValueInt)
-			{
-				statList.stats.Add(new ValueIntReference(statStructure.values[i], 0));
+				value.Null();
+				if(value.valueBase.formula is FormulaInt)
+				{
+					FormulaInt formula = (FormulaInt) value.valueBase.formula;
+					statList.Add(value.valueBase, formula.Calculate(statList));
+				}
+				else if(value.valueBase.formula is FormulaFloat)
+				{
+					FormulaFloat formula = (FormulaFloat) value.valueBase.formula;
+					statList.Add(value.valueBase, formula.Calculate(statList));
+				}
+			
+				List<Value> references = value.valueBase.formula.GetReferences();
+				for(int i = 0 ; i < references.Count; i++)
+				{
+					statList.Subscribe(ValueRecalculate, value.valueBase, references[i]);
+				}
 			}
 		}
 	}
-
-	private void OnGUI()
+	///----------------------------------------------------
+	/// <summary>
+	/// Initialize the stat values of the actor into the list statList
+	/// </summary>
+	///----------------------------------------------------
+	private void InitValues()
 	{
-		for (int i = 0; i < statList.stats.Count; i++)
+		statList = new StatsContainer();
+
+		// On create of an actor, we need to load up the stats into the ValueStructure Values list
+		for (int i = 0; i < StatStructure.values.Count; i++)
 		{
-			GUI.Label(new Rect(10,10 + 30*i, 500, 22), statList.stats[i].valueBase.name);
+			Value value = StatStructure.values[i];
+
+			if (value is ValueFloat)
+			{
+				statList.stats.Add(new ValueFloatReference(value, 5f));
+			}
+			else if (value is ValueInt)
+			{
+				statList.stats.Add(new ValueIntReference(value, 5));
+			}
 		}
+	}
+	#endregion Init Methods
+	///----------------------------------------------------
+	/// <summary>
+	/// This method will handle when a value gets updated and needs to recalculate its dependents
+	/// </summary>
+	/// <param name="value">Value that needs to be recalculated</param>
+	///----------------------------------------------------
+	public void ValueRecalculate(Value value)
+	{
+		FormulaInt	formulaInt;
+		ValueReference valueReference = statList.GetValueReference(value);
+		valueReference.Null();
+
+		#region Formula Calls
+		#region Recalculate GP
+		if(valueReference.valueBase.formula is GPFormula)
+		{
+			formulaInt = (FormulaInt) valueReference.valueBase.formula;
+			statList.SetValue(value, formulaInt.Calculate(statList));
+		}
+		#endregion Recalculate GP
+		#endregion Formula Calls
 	}
 }

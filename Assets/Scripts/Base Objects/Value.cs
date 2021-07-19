@@ -9,5 +9,7 @@ using UnityEngine;
 ///---------------------------------------------------------------------------------------------------------
 public class Value : ScriptableObject
 {
-	public string name;
+	public string valueName;
+	public Formula formula;
+	public bool	isNull = true;
 }
