@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78b151c1938293478c342bcd958dc70, type: 3}
   m_Name: GPFormula
   m_EditorClassIdentifier: 
-  experience: {fileID: 0}
-  wealth: {fileID: 0}
+  experience: {fileID: 11400000, guid: b92221d9a1f0ba647b6ef16629dabb61, type: 2}
+  wealth: {fileID: 11400000, guid: 560e8e502f03f1942be5c2f2d4533fd0, type: 2}
