@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3738708460665400765}
   - component: {fileID: 3738708460665400763}
   - component: {fileID: 3738708460665400760}
+  - component: {fileID: 1095168415}
+  - component: {fileID: 1095168416}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -30,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3738708460665400766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.48, y: 0.86, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,12 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b8d7f58b1e7274b8031e95cfe7924b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatStructure: {fileID: 0}
+  StatStructure: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
+  GPValue: {fileID: 11400000, guid: 58dea54f4a49b2c46b09191145c8bbc7, type: 2}
+  STRValue: {fileID: 11400000, guid: d67960d4f80b20440ad5219b6d187d64, type: 2}
+  WLTValue: {fileID: 11400000, guid: 560e8e502f03f1942be5c2f2d4533fd0, type: 2}
+  EXPValue: {fileID: 11400000, guid: b92221d9a1f0ba647b6ef16629dabb61, type: 2}
   statList: {fileID: 0}
-  GPValue: {fileID: 0}
-  STRValue: {fileID: 0}
-  WLTValue: {fileID: 0}
-  EXPValue: {fileID: 0}
 --- !u!114 &3738708460665400765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +148,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -157,5 +159,40 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1875, y: 1.8125}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1095168415
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738708460665400766}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1095168416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738708460665400766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11f7540e0267a242be256a1f5513cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxPivot: {fileID: 0}
+  boxHalfSize: {x: 1, y: 1}

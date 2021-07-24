@@ -8,13 +8,13 @@ public class Actor : MonoBehaviour
 	// Declarations
 	//------------------------------
 	public ValueStructure	StatStructure;
-	public StatsContainer	statList;
 	public Value			GPValue;
 	public Value			STRValue;
 	public Value			WLTValue;
 	public Value			EXPValue;
+	public StatsContainer	statList;
 
-    void Start()
+	void Start()
     {
         Init();
     }
