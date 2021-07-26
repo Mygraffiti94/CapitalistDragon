@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59098f8ab2187d84899e0c3aef0f51de, type: 3}
   m_Name: SKL
   m_EditorClassIdentifier: 
-  name: Skill
+  valueName: 
+  formula: {fileID: 0}
+  isNull: 1

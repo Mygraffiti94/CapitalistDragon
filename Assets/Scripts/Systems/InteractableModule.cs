@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Interactable))]
 abstract public class InteractableModule : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -15,5 +16,5 @@ abstract public class InteractableModule : MonoBehaviour
 		interactable.onInteract += Interact;
     }
 
-    public abstract void Interact();
+    public abstract void Interact(GameObject actor);
 }

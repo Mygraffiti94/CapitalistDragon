@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59098f8ab2187d84899e0c3aef0f51de, type: 3}
-  m_Name: AFF
+  m_Script: {fileID: 11500000, guid: d3d49ff78d4d8fd45a8b3f96fec0dacc, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  name: Affinity
+  itemName: Sworc
+  sell: 10
+  buy: 15
+  stackable: 0

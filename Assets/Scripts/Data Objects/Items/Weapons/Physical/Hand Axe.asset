@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59098f8ab2187d84899e0c3aef0f51de, type: 3}
-  m_Name: MAG
+  m_Script: {fileID: 11500000, guid: d3d49ff78d4d8fd45a8b3f96fec0dacc, type: 3}
+  m_Name: Hand Axe
   m_EditorClassIdentifier: 
-  name: Magic
+  itemName: Hand Axe
+  sell: 10
+  buy: 10
+  stackable: 0
