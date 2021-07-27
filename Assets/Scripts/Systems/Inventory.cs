@@ -67,16 +67,16 @@ public class Inventory : MonoBehaviour
 			inventory.Remove(itemInstance);
 	}
 
-	private void OnGUI()
-	{
-		GUIStyle	style = new GUIStyle();
-		style.fontSize = 32;
-		style.fontStyle = FontStyle.Bold;
+	//private void OnGUI()
+	//{
+	//	GUIStyle	style = new GUIStyle();
+	//	style.fontSize = 32;
+	//	style.fontStyle = FontStyle.Bold;
 
-		for(int i = 0; i < inventory.Count; i++)
-		{
-			string s = inventory[i].itemBase.name + " x " + inventory[i].itemCount;
-			GUI.Label(new Rect(10, 10 + 25 * i, 300, 20), s, style);
-		}
-	}
+	//	for(int i = 0; i < inventory.Count; i++)
+	//	{
+	//		string s = inventory[i].itemBase.name + " x " + inventory[i].itemCount;
+	//		GUI.Label(new Rect(10, 10 + 25 * i, 300, 20), s, style);
+	//	}
+	//}
 }
