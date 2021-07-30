@@ -16,3 +16,4 @@ MonoBehaviour:
   sell: 10
   buy: 10
   stackable: 0
+  itemType: 1

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,9 +26,13 @@ public class Inventory : MonoBehaviour
 {
 	List<ItemInstance> inventory;
 	[SerializeField] List<Item>	itemOnStart;
+	public int getItemCount
+	{
+		get { return inventory.Count; }
+	}
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         inventory = new List<ItemInstance>();
 		for(int i = 0; i < itemOnStart.Count; i++)
@@ -35,6 +40,11 @@ public class Inventory : MonoBehaviour
 			AddItem(itemOnStart[i]);
 		}
     }
+
+	public List<ItemInstance> GetInventory()
+	{
+		return inventory;
+	}
 
     public void AddItem(Item item, int count = 1)
 	{
@@ -67,16 +77,8 @@ public class Inventory : MonoBehaviour
 			inventory.Remove(itemInstance);
 	}
 
-	//private void OnGUI()
-	//{
-	//	GUIStyle	style = new GUIStyle();
-	//	style.fontSize = 32;
-	//	style.fontStyle = FontStyle.Bold;
-
-	//	for(int i = 0; i < inventory.Count; i++)
-	//	{
-	//		string s = inventory[i].itemBase.name + " x " + inventory[i].itemCount;
-	//		GUI.Label(new Rect(10, 10 + 25 * i, 300, 20), s, style);
-	//	}
-	//}
+	internal ItemInstance GetItem(int id)
+	{
+		return inventory[id];
+	}
 }

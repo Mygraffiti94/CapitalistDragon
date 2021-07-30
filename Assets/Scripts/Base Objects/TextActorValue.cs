@@ -15,15 +15,14 @@ public class TextActorValue : MonoBehaviour
 	}
 
     // Start is called before the first frame update
-    void Start()
-    {
-        Actor.statList.Subscribe(UpdateText, TrackValue);
-		UpdateText();
-    }
+  //  void Start()
+  //  {
+  //      Actor.statList.Subscribe(UpdateText, TrackValue);
+		//UpdateText();
+  //  }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void Set(Value _trackValue, Actor _actor)
+	{
+		GetComponent<TextMeshProUGUI>().text = _trackValue.valueName;
+	}
 }

@@ -12,4 +12,5 @@ public class Item : ScriptableObject
 	public int sell;
 	public int buy;
 	public bool stackable;
+	public ItemType itemType;
 }

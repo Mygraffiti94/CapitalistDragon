@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,13 +15,23 @@ public enum ItemType
 
 public class Equipment : MonoBehaviour
 {
-	[SerializeField] List<ItemType> availableSlots;
-	EquipmentSlot[] equipmentSlots;
+	[SerializeField] public List<ItemType> availableSlots;
+	[SerializeField] public EquipmentSlot[] equipmentSlots;
+	[SerializeField] public List<Item> equippedItems;
+
+	internal bool CheckAvailableSlots(ItemInstance item)
+	{
+		return availableSlots.Contains(item.itemBase.itemType);
+	}
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		Init();
+		for (int i = 0; i < equippedItems.Count; i++)
+		{
+			Equip(equippedItems[i], i);
+		}
 	}
 
 	private void Init()
@@ -35,5 +46,11 @@ public class Equipment : MonoBehaviour
 	public void Equip(Item toEquip, int slotNumber)
 	{
 		equipmentSlots[slotNumber].Equip(toEquip);
+	}
+
+	internal void Equip(Item itemBase)
+	{
+		int slotNum = availableSlots.FindIndex(item => item == itemBase.itemType);
+		Equip(itemBase, slotNum);
 	}
 }

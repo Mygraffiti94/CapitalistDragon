@@ -6,7 +6,7 @@ using UnityEngine;
 public class EquipmentSlot
 {
 	ItemType itemType;
-	Item equipped;
+	public Item equipped;
 
 	public EquipmentSlot(ItemType _itemType)
 	{
