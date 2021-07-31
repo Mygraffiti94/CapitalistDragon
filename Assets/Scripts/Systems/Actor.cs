@@ -7,11 +7,7 @@ public class Actor : MonoBehaviour
 	//------------------------------
 	// Declarations
 	//------------------------------
-	public ValueStructure	StatStructure;
-	public Value			GPValue;
-	public Value			STRValue;
-	public Value			WLTValue;
-	public Value			EXPValue;
+	[SerializeField] public ValueStructure	StatStructure;
 	public StatsContainer	statList;
 
 	void Start()
@@ -21,18 +17,7 @@ public class Actor : MonoBehaviour
 
     void Update()
     {
-         if(Input.GetKeyDown(KeyCode.Z))
-		 {
-			statList.Add(GPValue, 5);
-			statList.Add(WLTValue, 1);
-			statList.Add(EXPValue, 1);
-		 }
-		 else if(Input.GetKeyDown(KeyCode.X))
-		 {
-			statList.Add(GPValue, -5);
-			statList.Add(WLTValue, -1);
-			statList.Add(EXPValue, -1);
-		 }
+
     }
 
 	#region Init Methods

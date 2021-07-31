@@ -6,6 +6,5 @@ public class InventoryManager : MonoBehaviour
 {
 	public Inventory inventory;
 	public Equipment equipment;
-
-
+	public Actor actor;
 }

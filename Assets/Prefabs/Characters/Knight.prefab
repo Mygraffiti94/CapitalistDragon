@@ -197,10 +197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatStructure: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
-  GPValue: {fileID: 11400000, guid: 58dea54f4a49b2c46b09191145c8bbc7, type: 2}
-  STRValue: {fileID: 11400000, guid: d67960d4f80b20440ad5219b6d187d64, type: 2}
-  WLTValue: {fileID: 11400000, guid: 560e8e502f03f1942be5c2f2d4533fd0, type: 2}
-  EXPValue: {fileID: 11400000, guid: b92221d9a1f0ba647b6ef16629dabb61, type: 2}
   statList: {fileID: 0}
 --- !u!114 &1095168416
 MonoBehaviour:
@@ -250,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableSlots: 01000000020000000300000003000000
+  equippedItems: []
 --- !u!114 &3738708460665400765
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,26 @@ public class StatsContainer : MonoBehaviour
 		stats = new List<ValueReference>();
 	}
 
+	internal void Sum(ValueContainer stats)
+	{
+		int integerIndex = 0;
+		int floatIndex = 0;
+
+		for(int i = 0; i < stats.values.Count; i++)
+		{
+			if(stats.values[i].GetType() == typeof(ValueFloat))
+			{
+				Add(stats.values[i], stats.floats[floatIndex]);
+				floatIndex++;
+			}
+			else if(stats.values[i].GetType() == typeof(ValueInt))
+			{
+				Add(stats.values[i], stats.integers[integerIndex]);
+				integerIndex++;
+			}
+		}
+	}
+
 	#region Stat Manipulation Methods
 	///----------------------------------------------------
 	/// <summary>
@@ -60,6 +80,26 @@ public class StatsContainer : MonoBehaviour
 		else
 		{
 			throw new UnityException("The given stat " + value.valueName + " does not exist.");
+		}
+	}
+
+	public void Substract(Value value, int input)
+	{
+		ValueReference valueReference = stats.Find(item => item.valueBase == value);
+		if(valueReference != null)
+		{ 
+			ValueIntReference valueIntReference = (ValueIntReference) valueReference;
+			valueIntReference.Substract(input);
+		}
+	}
+
+	public void Substract(Value value, int input)
+	{
+		ValueReference valueReference = stats.Find(item => item.valueBase == value);
+		if (valueReference != null)
+		{
+			ValueFloatReference valueIntReference = (ValueFloatReference)valueReference;
+			valueIntReference.Substract(input);
 		}
 	}
 	#endregion Stat Manipulation Methods
@@ -119,7 +159,7 @@ public class StatsContainer : MonoBehaviour
 
 	///-------------------------------------------------------------------------------------------------------------
 	/// <summary>
-	/// The the value of the given item
+	/// Gets the value of the given item
 	/// </summary>
 	/// <param name="value">Value to find</param>
 	/// <returns>The valueReference</returns>

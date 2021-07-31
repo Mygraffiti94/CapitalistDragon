@@ -16,6 +16,7 @@ public class InventoryPanel : ItemPanel
 			{
 				inventoryManager.inventory.AddItem(previousItem);
 			}
+			inventoryManager.actor.statList.Sum(item.itemBase.stats);
 			inventoryManager.equipment.Equip(item.itemBase);
 			inventoryManager.inventory.RemoveItem(item.itemBase);
 			UpdatePanel();
