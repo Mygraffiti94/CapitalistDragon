@@ -8,7 +8,7 @@ public class DebugManager : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.I))
+		if(Input.GetButtonDown("Submit"))
 		{
 			guiCanvas.SetActive(!guiCanvas.activeInHierarchy);
 		}

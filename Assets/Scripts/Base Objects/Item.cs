@@ -13,4 +13,5 @@ public class Item : ScriptableObject
 	public int buy;
 	public bool stackable;
 	public ItemType itemType;
+	public ValueContainer stats;
 }

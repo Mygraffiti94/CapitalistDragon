@@ -11,6 +11,11 @@ public class InventoryPanel : ItemPanel
 		ItemInstance item = inventoryManager.inventory.GetItem(id);
 		if(inventoryManager.equipment.CheckAvailableSlots(item))
 		{
+			Item previousItem = inventoryManager.equipment.GetItemSlot(item.itemBase.itemType);
+			if(previousItem != null)
+			{
+				inventoryManager.inventory.AddItem(previousItem);
+			}
 			inventoryManager.equipment.Equip(item.itemBase);
 			inventoryManager.inventory.RemoveItem(item.itemBase);
 			UpdatePanel();

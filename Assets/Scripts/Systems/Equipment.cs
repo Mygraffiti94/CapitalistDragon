@@ -11,13 +11,12 @@ public enum ItemType
 	Accessory
 }
 
-
-
 public class Equipment : MonoBehaviour
 {
 	[SerializeField] public List<ItemType> availableSlots;
 	[SerializeField] public EquipmentSlot[] equipmentSlots;
 	[SerializeField] public List<Item> equippedItems;
+	public Action onChange;
 
 	internal bool CheckAvailableSlots(ItemInstance item)
 	{
@@ -52,5 +51,14 @@ public class Equipment : MonoBehaviour
 	{
 		int slotNum = availableSlots.FindIndex(item => item == itemBase.itemType);
 		Equip(itemBase, slotNum);
+		if(onChange != null)
+		{
+			onChange.Invoke();
+		}
+	}
+	internal Item GetItemSlot(ItemType itemType)
+	{
+		int slot = availableSlots.FindIndex(item => item == itemType);
+		return equipmentSlots[slot].equipped;
 	}
 }
