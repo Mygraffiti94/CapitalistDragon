@@ -17,3 +17,5 @@ MonoBehaviour:
   buy: 0
   stackable: 0
   itemType: 1
+  itemRarity: 3
+  stats: {fileID: 11400000, guid: c75ebd882a65330449d6c5e424856c80, type: 2}

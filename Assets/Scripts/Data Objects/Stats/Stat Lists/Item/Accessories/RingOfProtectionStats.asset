@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdd4f49029323840881e4922cc93758, type: 3}
+  m_Name: RingOfProtectionStats
+  m_EditorClassIdentifier: 
+  values:
+  - {fileID: 11400000, guid: 58dea54f4a49b2c46b09191145c8bbc7, type: 2}
+  - {fileID: 11400000, guid: e99250cb905a823478274a0fbe507705, type: 2}
+  integers: 0a00000005000000
+  floats: []
