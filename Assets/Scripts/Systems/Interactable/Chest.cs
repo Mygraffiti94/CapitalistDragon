@@ -8,17 +8,19 @@ public class Chest : MonoBehaviour
 	[SerializeField] Sprite[] chestSprites;
 	[SerializeField] public float openTime = 0.5f;
 	[SerializeField] public List<Item> containedItems;
-	
-	private float frameTime;
-	private bool trigger = false;
+	[SerializeField] public Dialogue dialogue;
+
+	private float frameTime = 0.25f;
 
 	private Inventory inventory;
 	private SpriteRenderer spriteRenderer;
 
 	public void OpenChest(GameObject actor)
 	{
+		Dialogue chestDialogue;
+
 		// We only need to execute any part of the method if we haven't opened the chest yet
-		if(openedChest == true)
+		if (openedChest == true)
 			return;
 
 		if(chestSprites.Length < 1)
@@ -36,13 +38,16 @@ public class Chest : MonoBehaviour
 
 		// Get how many seconds that each frame of the chest needs to open for
 		frameTime = openTime / chestSprites.Length;
-
 		StartCoroutine(FrameWait());
 		inventory = actor.GetComponent<Inventory>();
+		chestDialogue = Instantiate(dialogue);
 		foreach(Item item in containedItems)
 		{
+			chestDialogue.text[0] += "\n 1x " + item.itemName;
 			inventory.AddItem(item);
 		}
+
+		GameManager.instance.dialogueManager.StartDialogue(chestDialogue);
 		openedChest = true;
 	}
 

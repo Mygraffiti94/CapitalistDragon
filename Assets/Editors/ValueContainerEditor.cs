@@ -57,7 +57,7 @@ public class ValueContainerEditor : Editor
 		SerializedProperty list = serializedObject.FindProperty(valueArray);
 		if(index >= list.arraySize)
 		{
-			list.arraySize += 1;
+			list.arraySize ++;
 		}
 
 		SerializedProperty arrayElement = list.GetArrayElementAtIndex(index);

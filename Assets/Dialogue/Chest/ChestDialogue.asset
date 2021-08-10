@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869b6bd6851be33429f429eeea956d58, type: 3}
-  m_Name: Knight
+  m_Script: {fileID: 11500000, guid: d72e46ad76e8bc743a74eef02a63615e, type: 3}
+  m_Name: ChestDialogue
   m_EditorClassIdentifier: 
-  actorName: 
-  characterPortrait: {fileID: 0}
+  text:
+  - 'You obtained: '
+  actor:
+  - {fileID: 11400000, guid: df488170d76f5bc4bb8e0525c604c65f, type: 2}
