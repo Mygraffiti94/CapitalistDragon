@@ -93,8 +93,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 19
+  m_fontSizeBase: 19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 10
@@ -169,5 +169,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d21483f8189fc41bdbcf6269ad8b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrackValue: {fileID: 0}
-  Actor: {fileID: 0}
+  trackValue: {fileID: 0}
+  actor: {fileID: 0}
