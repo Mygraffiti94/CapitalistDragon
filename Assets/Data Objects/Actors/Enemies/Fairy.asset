@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dda5ecabfe75ff478bd1597283661d4, type: 3}
-  m_Name: Enemy
+  m_Name: Fairy
   m_EditorClassIdentifier: 
-  enemyName: 
-  sprite: {fileID: 0}
-  stats: {fileID: 114485435546801072}
---- !u!114 &114485435546801072
+  enemyName: Fairy
+  sprite: {fileID: 7709516055620161478, guid: cb008680ca7201c40abed5a2a35e4aa5, type: 3}
+  stats: {fileID: 114283920937439304}
+--- !u!114 &114283920937439304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,5 +33,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b0d87e756b5dd342a2d1294563805f1, type: 2}
   - {fileID: 11400000, guid: 711f3d72a682bd84d9d60987ae902532, type: 2}
   - {fileID: 11400000, guid: 008abbffc7fb8ee46916c9ffbd79d714, type: 2}
-  integers: 0000000000000000000000000000000000000000
+  integers: 3200000001000000140000001400000014000000
   floats: []

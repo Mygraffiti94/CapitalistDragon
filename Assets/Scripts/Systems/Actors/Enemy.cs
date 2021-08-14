@@ -5,9 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 /// <summary>
-/// Scriptable object for an enemy. Will generate a full asset based off the object as enemies require to be fully instantiated to exist.
-/// Enemy will instantiate and create an asset for all its components when created inside the editor. This way the Enemy will always have every
-/// object it needs to exist but all the while have everything contained in one place so that when modifiying/deleting, it becomes very painless
+/// Scriptable object for an enemy. This will hold information of the enemy to be used to generate an enemy unit
 /// </summary>
 public class Enemy : ScriptableObject
 {

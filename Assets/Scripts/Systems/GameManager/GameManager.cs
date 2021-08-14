@@ -6,7 +6,8 @@ public enum ControlScheme
 { 
 	Exploration,
 	Inventory,
-	Dialogue
+	Dialogue,
+	Battle
 }
 
 public class GameManager : MonoBehaviour
@@ -65,6 +66,11 @@ public class GameManager : MonoBehaviour
 				playerControl.enabled = false;
 				inventoryControl.enabled = false;
 				dialogueControl.enabled = true;
+				break;
+			case ControlScheme.Battle:
+				playerControl.enabled = false;
+				inventoryControl.enabled = false;
+				dialogueControl.enabled = false;
 				break;
 		}
 	}

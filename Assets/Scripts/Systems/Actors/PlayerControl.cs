@@ -90,7 +90,7 @@ public class PlayerControl : MonoBehaviour
 			// Check for encounters
 			if(GameManager.instance.encounterManager.hasEncounters == true)
 			{ 
-				if(UnityEngine.Random.Range(0, 1000) < 100)
+				if(UnityEngine.Random.Range(0, 1000) < 90)
 				{ 
 					if(encounterCD < 1)
 					{ 
