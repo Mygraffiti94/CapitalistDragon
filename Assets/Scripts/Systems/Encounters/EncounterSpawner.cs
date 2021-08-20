@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EncounterSpawner : MonoBehaviour
 {
-	[SerializeField] public Transform[] enemyPositions;
+	[SerializeField] Transform[] enemyPositions;
+	[SerializeField] Transform[] playerPositions;
 	[SerializeField] EncounterList encounterList;
 
 	private EnemyEncounter enemyEncounter;
@@ -12,7 +13,7 @@ public class EncounterSpawner : MonoBehaviour
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 
-	public void SpawnEncounter()
+	public void SpawnEncounter(Party party)
 	{
 		int positionIndex = 0;
 
@@ -23,6 +24,14 @@ public class EncounterSpawner : MonoBehaviour
 		{
 			enemy.sprite.transform.position = enemyPositions[positionIndex].position;
 			Instantiate(enemy.sprite, transform);
+			positionIndex++;
+		}
+
+		positionIndex = 0;
+		foreach(CombatActor member in party.members)
+		{
+			member.transform.position = playerPositions[positionIndex].position;
+			Instantiate(member, transform);
 			positionIndex++;
 		}
 	}

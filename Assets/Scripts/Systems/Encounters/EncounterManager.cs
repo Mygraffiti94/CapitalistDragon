@@ -9,6 +9,7 @@ public class EncounterManager : MonoBehaviour
 	[SerializeField] public GameObject battlefield;
 	[SerializeField] public GameObject mainGame;
 	[SerializeField] public EncounterSpawner spawner;
+	[SerializeField] public Party party;
 
 	public void StartEncounter()
 	{
@@ -16,7 +17,7 @@ public class EncounterManager : MonoBehaviour
 		battlefield.SetActive(true);
 		mainGame.SetActive(false);
 		GameManager.instance.SetControlScheme(ControlScheme.Battle);
-		spawner.SpawnEncounter();
+		spawner.SpawnEncounter(GameManager.instance.player.GetComponent<Party>());
 	}
 
 	public void EndEncounter()
