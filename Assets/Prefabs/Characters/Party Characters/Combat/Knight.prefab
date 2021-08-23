@@ -146,3 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c6abe0c3f0d5548b2a54669b40204c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StatStructure: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
+  statList: {fileID: 0}

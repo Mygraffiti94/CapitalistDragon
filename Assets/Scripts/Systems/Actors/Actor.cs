@@ -8,6 +8,7 @@ public class Actor : MonoBehaviour
 	// Declarations
 	//------------------------------
 	[SerializeField] public ValueStructure	StatStructure;
+	public int level;
 	public StatsContainer	statList;
 
 	void Start()

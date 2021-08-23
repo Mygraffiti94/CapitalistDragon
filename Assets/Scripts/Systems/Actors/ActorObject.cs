@@ -6,6 +6,7 @@ using UnityEngine;
 public class ActorObject : ScriptableObject
 {
 	public string actorName;
+	public int level;
 	public Sprite characterPortrait;
 	private Texture2D portraitTexture;
 }

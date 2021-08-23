@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class CombatActor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField] public ValueStructure StatStructure;
+	public StatsContainer statList;
+	public string actorName;
+	public int level;
 }

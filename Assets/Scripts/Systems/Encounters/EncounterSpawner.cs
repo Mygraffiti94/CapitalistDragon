@@ -7,6 +7,7 @@ public class EncounterSpawner : MonoBehaviour
 	[SerializeField] Transform[] enemyPositions;
 	[SerializeField] Transform[] playerPositions;
 	[SerializeField] EncounterList encounterList;
+	[SerializeField] PartyStatusPanel partyStatusPanel;
 
 	private EnemyEncounter enemyEncounter;
 	private EnemyInfo enemyInfo;
@@ -34,6 +35,8 @@ public class EncounterSpawner : MonoBehaviour
 			Instantiate(member, transform);
 			positionIndex++;
 		}
+
+		partyStatusPanel.InitializePartyDisplay(party.members);
 	}
 
 	public void RemoveCombatants()
