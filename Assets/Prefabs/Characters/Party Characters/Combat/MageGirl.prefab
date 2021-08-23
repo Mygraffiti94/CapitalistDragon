@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatStructure: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
+  level: 1
   statList: {fileID: 0}
 --- !u!114 &2982662911238303957
 MonoBehaviour:
@@ -148,3 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatStructure: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
   statList: {fileID: 0}
+  actorName: Mage Girl
+  level: 1

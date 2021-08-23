@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatStructure: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
+  level: 0
   statList: {fileID: 0}
 --- !u!114 &6050033854947484765
 MonoBehaviour:
@@ -148,3 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatStructure: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
   statList: {fileID: 0}
+  actorName: Knight
+  level: 1

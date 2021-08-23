@@ -6,6 +6,7 @@ using UnityEngine;
 public class PartyStatusPanel : MonoBehaviour
 {
 	[SerializeField] Value goldValue;
+	[SerializeField] Value maxGoldValue;
 	public GameObject playerNamePanel;
 	public GameObject playerNamePrefab;
 	public GameObject goldTextPanel;
@@ -20,8 +21,10 @@ public class PartyStatusPanel : MonoBehaviour
 
 			GameObject goldText = Instantiate(goldTextPrefab, goldTextPanel.transform);
 			int currGold = 0;
+			int maxGold = 0;
 			partyList[i].statList.Get(goldValue, out currGold);
-			goldText.GetComponentInChildren<TextMeshProUGUI>().text = currGold.ToString();
+			partyList[i].statList.Get(maxGoldValue, out maxGold);
+			goldText.GetComponentInChildren<TextMeshProUGUI>().text = "Gold: " + currGold.ToString() + "/" + maxGold.ToString();
 		}
 	}
 }

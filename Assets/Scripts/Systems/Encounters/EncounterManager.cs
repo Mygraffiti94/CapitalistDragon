@@ -17,6 +17,14 @@ public class EncounterManager : MonoBehaviour
 		battlefield.SetActive(true);
 		mainGame.SetActive(false);
 		GameManager.instance.SetControlScheme(ControlScheme.Battle);
+
+		foreach(CombatActor combatActor in GameManager.instance.player.GetComponent<Party>().members)
+		{
+			Actor actor = GameManager.instance.player.GetComponent<Actor>();
+			combatActor.statList = actor.statList;
+			combatActor.StatStructure = actor.StatStructure;
+		}
+
 		spawner.SpawnEncounter(GameManager.instance.player.GetComponent<Party>());
 	}
 

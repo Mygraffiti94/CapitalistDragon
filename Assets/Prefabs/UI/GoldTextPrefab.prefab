@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4289338, g: 0.7010513, b: 0.764151, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.09806824, y: 0.000022888184, z: 0, w: 0.3266678}
+  m_margin: {x: 0.7892368, y: 0.91979027, z: 0, w: 0.3266678}
   m_textInfo:
     textComponent: {fileID: 8523814679286541720}
     characterCount: 17
