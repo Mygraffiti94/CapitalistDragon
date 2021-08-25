@@ -30,7 +30,7 @@ public class EncounterManager : MonoBehaviour
 
 	public void EndEncounter()
 	{
-		spawner.RemoveCombatants();
+		spawner.RemoveObjectsAfterEncounter();
 		battlefield.SetActive(false);
 		mainGame.SetActive(true);
 		GameManager.instance.SetControlScheme(ControlScheme.Exploration);

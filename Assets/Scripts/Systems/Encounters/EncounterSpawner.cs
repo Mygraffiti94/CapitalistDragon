@@ -8,6 +8,7 @@ public class EncounterSpawner : MonoBehaviour
 	[SerializeField] Transform[] playerPositions;
 	[SerializeField] EncounterList encounterList;
 	[SerializeField] PartyStatusPanel partyStatusPanel;
+	[SerializeField] EnemyStatusPanel enemyStatusPanel;
 
 	private EnemyEncounter enemyEncounter;
 	private EnemyInfo enemyInfo;
@@ -28,6 +29,8 @@ public class EncounterSpawner : MonoBehaviour
 			positionIndex++;
 		}
 
+		enemyStatusPanel.InitializeEnemyDisplay(enemyEncounter.enemies);
+
 		positionIndex = 0;
 		foreach(CombatActor member in party.members)
 		{
@@ -39,12 +42,16 @@ public class EncounterSpawner : MonoBehaviour
 		partyStatusPanel.InitializePartyDisplay(party.members);
 	}
 
-	public void RemoveCombatants()
+	public void RemoveObjectsAfterEncounter()
 	{
 		foreach(Transform child in transform)
 		{
 			if(child.GetComponent<EnemyController>() != null)
 				Destroy(child.gameObject);
+			else if(child.GetComponent<CombatActor>() != null)
+				Destroy(child.gameObject);
 		}
+
+		partyStatusPanel.RemovePartyDetails();
 	}
 }

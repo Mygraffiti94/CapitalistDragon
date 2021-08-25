@@ -27,4 +27,23 @@ public class PartyStatusPanel : MonoBehaviour
 			goldText.GetComponentInChildren<TextMeshProUGUI>().text = "Gold: " + currGold.ToString() + "/" + maxGold.ToString();
 		}
 	}
+
+	public void RemovePartyDetails()
+	{
+		if(playerNamePanel != null)
+		{
+			foreach(Transform child in playerNamePanel.transform)
+			{
+				Destroy(child.gameObject);
+			}
+		}
+
+		if(goldTextPanel != null)
+		{
+			foreach(Transform child in goldTextPanel.transform)
+			{
+				Destroy(child.gameObject);
+			}
+		}
+	}
 }
