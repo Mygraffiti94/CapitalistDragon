@@ -2,44 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class will handle the the encounter spawning with all the proper details on screen
+/// </summary>
 public class EncounterSpawner : MonoBehaviour
 {
 	[SerializeField] Transform[] enemyPositions;
-	[SerializeField] Transform[] playerPositions;
-	[SerializeField] EncounterList encounterList;
 	[SerializeField] PartyStatusPanel partyStatusPanel;
 	[SerializeField] EnemyStatusPanel enemyStatusPanel;
 
-	private EnemyEncounter enemyEncounter;
 	private EnemyInfo enemyInfo;
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 
-	public void SpawnEncounter(Party party)
+	/// <summary>
+	/// Method call that will spawn all the enemies and set the party details accordingly and begin combat
+	/// </summary>
+	/// <param name="party">Party members</param>
+	/// <param name="enemyEncounter">Enemy encounter</param>
+	public void StartEncounter(Party party, EnemyEncounter enemyEncounter)
 	{
 		int positionIndex = 0;
 
-		int index = UnityEngine.Random.Range(0, (encounterList.encounters.Count));
-
-		enemyEncounter = encounterList.encounters[index];
-		foreach (Enemy enemy in enemyEncounter.enemies)
+		List<CombatActor> enemies = new List<CombatActor>();
+		foreach (Entity enemy in enemyEncounter.enemies)
 		{
 			enemy.sprite.transform.position = enemyPositions[positionIndex].position;
-			Instantiate(enemy.sprite, transform);
+			GameObject enemyObject = Instantiate(enemy.sprite, transform);
+			Actor actor = enemyObject.AddComponent<Actor>();
+			actor.Init(enemy);
+			CombatActor combatActor = enemyObject.AddComponent<CombatActor>();
+			combatActor.actor = actor;
+			enemies.Add(combatActor);
 			positionIndex++;
 		}
 
 		enemyStatusPanel.InitializeEnemyDisplay(enemyEncounter.enemies);
-
-		positionIndex = 0;
-		foreach(CombatActor member in party.members)
-		{
-			member.transform.position = playerPositions[positionIndex].position;
-			Instantiate(member, transform);
-			positionIndex++;
-		}
-
 		partyStatusPanel.InitializePartyDisplay(party.members);
+
+		GameManager.instance.combat.InitiateCombat(party, enemies);
 	}
 
 	public void RemoveObjectsAfterEncounter()

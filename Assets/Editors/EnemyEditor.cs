@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Enemy))]
+[CustomEditor(typeof(Entity))]
 public class EnemyEditor : Editor
 {
 	Editor valueEditor;

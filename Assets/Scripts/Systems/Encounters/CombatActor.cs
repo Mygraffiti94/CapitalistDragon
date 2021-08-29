@@ -1,11 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatActor : MonoBehaviour
 {
-	[SerializeField] public ValueStructure StatStructure;
-	public StatsContainer statList;
+	public Actor actor;
 	public string actorName;
 	public int level;
+	public List<Ability> abilities;
+
+	private void Start()
+	{
+		actor = GetComponent<Actor>();
+		abilities = new List<Ability>(actor.abilities);
+	}
 }

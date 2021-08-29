@@ -12,7 +12,10 @@ public class StatsPanel : MonoBehaviour
 	{
 		for(int i = 0; i < characterStats.values.Count; i++)
 		{
-			if(characterStats.values[i].valueName == "Wealth")
+			// Exclude certain stats. Gold will be displayed elsewhere and wealth is a hidden stat
+			if(characterStats.values[i].valueName == "Wealth" ||
+			characterStats.values[i].valueName == "MaxGold" ||
+			characterStats.values[i].valueName == "Gold")
 				continue;
 
 			GameObject newText = Instantiate(text, transform);

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4131fac001de91940b90c0055f6479fe, type: 3}
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
+  copyOf: {fileID: 0}
   values:
   - {fileID: 11400000, guid: 37d60e26f4d5a7046a7d25f6f44ae182, type: 2}
   - {fileID: 11400000, guid: d67960d4f80b20440ad5219b6d187d64, type: 2}
   - {fileID: 11400000, guid: 7b0d87e756b5dd342a2d1294563805f1, type: 2}
   - {fileID: 11400000, guid: 711f3d72a682bd84d9d60987ae902532, type: 2}
   - {fileID: 11400000, guid: 008abbffc7fb8ee46916c9ffbd79d714, type: 2}
+  - {fileID: 11400000, guid: 58dea54f4a49b2c46b09191145c8bbc7, type: 2}

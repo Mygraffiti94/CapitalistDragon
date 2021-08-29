@@ -11,15 +11,35 @@ public class ValueContainer : ValueStructure
 
 	internal void Form(ValueStructure statStructure)
 	{
-		if(values == null)
-			values = new List<Value>();
+		copyOf = statStructure;
 
-		for(int i = 0; i < statStructure.values.Count; i++)
+		integers = new int[copyOf.values.FindAll(x => x.GetType() == typeof(ValueInt)).Count];
+		floats = new float[copyOf.values.FindAll(x => x.GetType() == typeof(ValueFloat)).Count];
+	}
+
+	internal void Copy(ref StatsContainer statList)
+	{
+		int intIndex = 0;
+		int floatIndex = 0;
+
+		List<Value> values;
+		if(copyOf != null)
+			values = copyOf.values;
+		else
+			values = this.values;
+
+		for(int i = 0; i < values.Count; i++)
 		{
-			values.Add(statStructure.values[i]);
+			if(values[i] is ValueFloat)
+			{
+				statList.stats.Add(new ValueFloatReference(values[i], floats[floatIndex]));
+				floatIndex++;
+			}
+			else if(values[i] is ValueInt)
+			{
+				statList.stats.Add(new ValueIntReference(values[i], integers[intIndex]));
+				intIndex++;
+			}
 		}
-
-		integers = new int[values.FindAll(x => x.GetType() == typeof(ValueInt)).Count];
-		floats = new float[values.FindAll(x => x.GetType() == typeof(ValueFloat)).Count];
 	}
 }

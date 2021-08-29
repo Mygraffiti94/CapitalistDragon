@@ -9,22 +9,26 @@ public class Actor : MonoBehaviour
 	//------------------------------
 	[SerializeField] public ValueStructure	StatStructure;
 	public int level;
-	public StatsContainer	statList;
+	[HideInInspector] public StatsContainer	statList;
+	public Entity entity;
+	public List<Ability> abilities;
 
 	void Start()
     {
-        Init();
-    }
-
-    void Update()
-    {
-
-    }
+		Init(entity);
+	}
 
 	#region Init Methods
-	void Init()
+	public void Init(Entity e)
 	{
-		InitValues();
+		entity = e;
+		Init(entity.stats);
+		abilities = new List<Ability>(e.abilities);
+	}
+
+	public void Init(ValueContainer valueContainer)
+	{
+		InitValues(valueContainer);
 		InitFormulas();
 	}
 
@@ -64,24 +68,10 @@ public class Actor : MonoBehaviour
 	/// Initialize the stat values of the actor into the list statList
 	/// </summary>
 	///----------------------------------------------------
-	private void InitValues()
+	private void InitValues(ValueContainer valueContainer)
 	{
 		statList = new StatsContainer();
-
-		// On create of an actor, we need to load up the stats into the ValueStructure Values list
-		for (int i = 0; i < StatStructure.values.Count; i++)
-		{
-			Value value = StatStructure.values[i];
-
-			if (value is ValueFloat)
-			{
-				statList.stats.Add(new ValueFloatReference(value, 5f));
-			}
-			else if (value is ValueInt)
-			{
-				statList.stats.Add(new ValueIntReference(value, 5));
-			}
-		}
+		valueContainer.Copy(ref statList);
 	}
 	#endregion Init Methods
 	///----------------------------------------------------

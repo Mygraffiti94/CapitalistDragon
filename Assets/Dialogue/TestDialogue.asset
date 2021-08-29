@@ -16,5 +16,5 @@ MonoBehaviour:
   - I like swords
   - I'm a rock
   actor:
-  - {fileID: 11400000, guid: 58f7495a9c1c6eb4f8ac899b20723f6f, type: 2}
+  - {fileID: 114278714042691776, guid: 9b57be42ed4b68a46b5a4333e2cd2317, type: 2}
   - {fileID: 11400000, guid: fa87f1e704f20d14aac8f11c561f8fdf, type: 2}

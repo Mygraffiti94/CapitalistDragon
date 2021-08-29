@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FairyEncounter2
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: 2fba2c67ecbd6be48a569b2de8c55c85, type: 2}
-  - {fileID: 11400000, guid: 2fba2c67ecbd6be48a569b2de8c55c85, type: 2}
-  - {fileID: 11400000, guid: 2fba2c67ecbd6be48a569b2de8c55c85, type: 2}
-  - {fileID: 11400000, guid: 2fba2c67ecbd6be48a569b2de8c55c85, type: 2}
-  - {fileID: 11400000, guid: 2fba2c67ecbd6be48a569b2de8c55c85, type: 2}
-  - {fileID: 11400000, guid: 2fba2c67ecbd6be48a569b2de8c55c85, type: 2}
+  - {fileID: 11400000, guid: d365bbf7e50ac6b4da589bb994828d4f, type: 2}
+  - {fileID: 11400000, guid: d365bbf7e50ac6b4da589bb994828d4f, type: 2}
+  - {fileID: 11400000, guid: d365bbf7e50ac6b4da589bb994828d4f, type: 2}
+  - {fileID: 11400000, guid: d365bbf7e50ac6b4da589bb994828d4f, type: 2}
+  - {fileID: 11400000, guid: d365bbf7e50ac6b4da589bb994828d4f, type: 2}
+  - {fileID: 11400000, guid: d365bbf7e50ac6b4da589bb994828d4f, type: 2}

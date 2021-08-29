@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// This handles enemy detail information on the battle GUI
+/// </summary>
 public class EnemyStatusPanel : MonoBehaviour
 {
-	[SerializeField] GameObject enemyStatusLeft;
-	[SerializeField] GameObject enemyStatusRight;
-	[SerializeField] GameObject enemyNameTextPrefab;
+	[SerializeField] List<GameObject> enemyNameObjects;
 
-	public void InitializeEnemyDisplay(List<Enemy> enemyList)
+	/// <summary>
+	/// Method call to update all the enemy detail items with the proper name and activating them to display them to the player
+	/// </summary>
+	/// <param name="enemyList">Enemy list to display</param>
+	public void InitializeEnemyDisplay(List<Entity> enemyList)
 	{
-		GameObject enemyName;
+		TextMeshProUGUI enemyName;
 		int i = 0;
-		int halfWay = Mathf.RoundToInt((float) enemyList.Count / 2);
-		for(i = 0; i < halfWay; i++)
+		for(i = 0; i < enemyList.Count; i++)
 		{
-			enemyName = Instantiate(enemyNameTextPrefab, enemyStatusLeft.transform);
-			enemyName.GetComponentInChildren<TextMeshProUGUI>().text = enemyList[i].enemyName;
-		}
-
-		for(; i < enemyList.Count; i++)
-		{
-			enemyName = Instantiate(enemyNameTextPrefab, enemyStatusRight.transform);
-			enemyName.GetComponentInChildren<TextMeshProUGUI>().text = enemyList[i].enemyName;
+			enemyName = enemyNameObjects[i].GetComponentInChildren<TextMeshProUGUI>();
+			enemyName.text = enemyList[i].entityName;
+			enemyNameObjects[i].gameObject.SetActive(true);
 		}
 	}
 }

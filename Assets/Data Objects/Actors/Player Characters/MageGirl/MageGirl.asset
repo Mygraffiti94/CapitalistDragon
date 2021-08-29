@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dda5ecabfe75ff478bd1597283661d4, type: 3}
+  m_Name: MageGirl
+  m_EditorClassIdentifier: 
+  entityName: Mage Girl
+  sprite: {fileID: 6412920156983187084, guid: 66018a4f2c1d25a4aa9fb4ee04ec99a2, type: 3}
+  stats: {fileID: 114619124430611336}
+  actorObject: {fileID: 114583635235158514}
+  abilities:
+  - {fileID: 11400000, guid: cd52d42f88f009e468323df65186b640, type: 2}
+  - {fileID: 0}
+  entityType: 2
+--- !u!114 &114583635235158514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869b6bd6851be33429f429eeea956d58, type: 3}
+  m_Name: ActorObject
+  m_EditorClassIdentifier: 
+  actorName: MageGirl
+  level: 1
+  characterPortrait: {fileID: 21300010, guid: 333b2b3637c64994387473aebcbc6301, type: 3}
+--- !u!114 &114619124430611336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdd4f49029323840881e4922cc93758, type: 3}
+  m_Name: Stats
+  m_EditorClassIdentifier: 
+  copyOf: {fileID: 11400000, guid: c97ec1485fd47bd4995eddfea10b86e6, type: 2}
+  values: []
+  integers: 19000000190000000000000002000000050000000a0000000f000000050000000f000000010000000000000000000000
+  floats: []

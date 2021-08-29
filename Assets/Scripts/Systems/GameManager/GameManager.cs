@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 	public EncounterManager encounterManager;
 	public InventoryControl inventoryControl;
 	public PlayerControl playerControl;
+	public Combat combat;
+	public SceneHandler sceneHandler;
 
 	private void Awake()
 	{

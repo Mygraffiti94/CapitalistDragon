@@ -7,43 +7,31 @@ public class PartyStatusPanel : MonoBehaviour
 {
 	[SerializeField] Value goldValue;
 	[SerializeField] Value maxGoldValue;
-	public GameObject playerNamePanel;
-	public GameObject playerNamePrefab;
-	public GameObject goldTextPanel;
-	public GameObject goldTextPrefab;
+	[SerializeField] List<GameObject> partyNamesText;
+	[SerializeField] List<GameObject> goldValueText;
 
 	public void InitializePartyDisplay(List<CombatActor> partyList)
 	{
-		for(int i = 0; i < partyList.Count; i++)
+		for (int i = 0; i < partyList.Count; i++)
 		{
-			GameObject memberName = Instantiate(playerNamePrefab, playerNamePanel.transform);
-			memberName.GetComponentInChildren<TextMeshProUGUI>().text = partyList[i].actorName;
+			TextMeshProUGUI memberNameObject = partyNamesText[i].GetComponentInChildren<TextMeshProUGUI>();
+			memberNameObject.text = partyList[i].actorName;
+			partyNamesText[i].gameObject.SetActive(true);
 
-			GameObject goldText = Instantiate(goldTextPrefab, goldTextPanel.transform);
-			int currGold = 0;
-			int maxGold = 0;
-			partyList[i].statList.Get(goldValue, out currGold);
-			partyList[i].statList.Get(maxGoldValue, out maxGold);
-			goldText.GetComponentInChildren<TextMeshProUGUI>().text = "Gold: " + currGold.ToString() + "/" + maxGold.ToString();
+			ActorStatusPanel actorStatusPanel = goldValueText[i].GetComponent<ActorStatusPanel>();
+			actorStatusPanel.combatActor = partyList[i];
+			actorStatusPanel.SetGoldValue();
+			goldValueText[i].gameObject.SetActive(true);
 		}
 	}
 
 	public void RemovePartyDetails()
 	{
-		if(playerNamePanel != null)
-		{
-			foreach(Transform child in playerNamePanel.transform)
-			{
-				Destroy(child.gameObject);
-			}
-		}
+		foreach(GameObject gameObject in partyNamesText)
+			gameObject.SetActive(false);
 
-		if(goldTextPanel != null)
-		{
-			foreach(Transform child in goldTextPanel.transform)
-			{
-				Destroy(child.gameObject);
-			}
-		}
+
+		foreach(GameObject gameObject in goldValueText)
+			gameObject.SetActive(false);
 	}
 }

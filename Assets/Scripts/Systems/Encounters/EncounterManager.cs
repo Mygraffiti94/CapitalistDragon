@@ -6,34 +6,27 @@ using UnityEngine.SceneManagement;
 public class EncounterManager : MonoBehaviour
 {
 	[SerializeField] public bool hasEncounters = true;
-	[SerializeField] public GameObject battlefield;
-	[SerializeField] public GameObject mainGame;
 	[SerializeField] public EncounterSpawner spawner;
-	[SerializeField] public Party party;
+	[SerializeField] public	EncounterList encounterList;
+	[SerializeField] public Combat combat;
 
 	public void StartEncounter()
 	{
 		Debug.Log("Encounter start");
-		battlefield.SetActive(true);
-		mainGame.SetActive(false);
-		GameManager.instance.SetControlScheme(ControlScheme.Battle);
 
-		foreach(CombatActor combatActor in GameManager.instance.player.GetComponent<Party>().members)
-		{
-			Actor actor = GameManager.instance.player.GetComponent<Actor>();
-			combatActor.statList = actor.statList;
-			combatActor.StatStructure = actor.StatStructure;
-		}
-
-		spawner.SpawnEncounter(GameManager.instance.player.GetComponent<Party>());
+		GameManager.instance.sceneHandler.SetSceneForBattleFromWorld();
+		EnemyEncounter enemyEncounter;
+		Party party;
+		int index = Random.Range(0, (encounterList.encounters.Count));
+		enemyEncounter = encounterList.encounters[index];
+		party = GameManager.instance.player.GetComponent<Party>();
+		spawner.StartEncounter(party, enemyEncounter);
 	}
 
 	public void EndEncounter()
 	{
+		GameManager.instance.sceneHandler.SetSceneToWorldAfterBattle();
 		spawner.RemoveObjectsAfterEncounter();
-		battlefield.SetActive(false);
-		mainGame.SetActive(true);
-		GameManager.instance.SetControlScheme(ControlScheme.Exploration);
 	}
 
 	public void Update()
