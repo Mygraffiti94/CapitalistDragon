@@ -9,6 +9,7 @@ public class CombatActor : MonoBehaviour
 	public string actorName;
 	public int level;
 	public List<Ability> abilities;
+	public bool enemy = false;
 
 	private void Start()
 	{

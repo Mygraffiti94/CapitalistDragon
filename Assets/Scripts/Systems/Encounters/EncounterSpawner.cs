@@ -33,6 +33,7 @@ public class EncounterSpawner : MonoBehaviour
 			actor.Init(enemy);
 			CombatActor combatActor = enemyObject.AddComponent<CombatActor>();
 			combatActor.actor = actor;
+			combatActor.abilities = actor.abilities;
 			enemies.Add(combatActor);
 			positionIndex++;
 		}

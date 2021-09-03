@@ -16,7 +16,10 @@ MonoBehaviour:
   sprite: {fileID: 7709516055620161478, guid: cb008680ca7201c40abed5a2a35e4aa5, type: 3}
   stats: {fileID: 114221407006605838}
   actorObject: {fileID: 0}
-  entityType: 0
+  abilities:
+  - {fileID: 11400000, guid: 455057db5ca7e754eb5ae7e885d39c7a, type: 2}
+  - {fileID: 11400000, guid: 91d59a8fbb381854ca7347748f126a20, type: 2}
+  entityType: 1
 --- !u!114 &114221407006605838
 MonoBehaviour:
   m_ObjectHideFlags: 0

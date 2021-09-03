@@ -8,7 +8,6 @@ public class EncounterManager : MonoBehaviour
 	[SerializeField] public bool hasEncounters = true;
 	[SerializeField] public EncounterSpawner spawner;
 	[SerializeField] public	EncounterList encounterList;
-	[SerializeField] public Combat combat;
 
 	public void StartEncounter()
 	{

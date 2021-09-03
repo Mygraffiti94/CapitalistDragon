@@ -8,5 +8,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ability/Magic/Spell")]
 public class Spell : Ability
 {
-
+	public override void Activate(CombatActor user, List<CombatActor> targets)
+	{
+		throw new System.NotImplementedException();
+	}
 }

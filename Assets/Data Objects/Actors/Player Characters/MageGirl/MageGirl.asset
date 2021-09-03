@@ -18,7 +18,7 @@ MonoBehaviour:
   actorObject: {fileID: 114583635235158514}
   abilities:
   - {fileID: 11400000, guid: cd52d42f88f009e468323df65186b640, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 91d59a8fbb381854ca7347748f126a20, type: 2}
   entityType: 2
 --- !u!114 &114583635235158514
 MonoBehaviour:

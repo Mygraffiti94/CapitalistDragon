@@ -26,6 +26,7 @@ public class Party : MonoBehaviour
 		
 		CombatActor combatActor = entityObject.GetComponent<CombatActor>();
 		combatActor.actor = actor;
+		combatActor.abilities = actor.abilities;
 		members.Add(combatActor);
 	}
 }
