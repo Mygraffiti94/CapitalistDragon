@@ -16,7 +16,8 @@ public class AbilityController : MonoBehaviour
 
 	public void GetTarget()
 	{
-		GameManager.instance.combat.text.text = "Selected target at index " + GetIndexOfButton();
+		GameManager.instance.combat.targets = new List<CombatActor>();
+		GameManager.instance.combat.targets.Add(GameManager.instance.combat.enemies[GetIndexOfButton()]);
 	}
 
 	private int GetIndexOfButton()

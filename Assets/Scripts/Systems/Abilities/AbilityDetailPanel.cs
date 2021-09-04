@@ -12,7 +12,6 @@ public class AbilityDetailPanel : MonoBehaviour
 	{
 		GameObject abilityObject;
 		TextMeshProUGUI text;
-		Ability ability;
 		AbilityDetail abilityDetail;
 
 		for(int i = 0; i < abilityList.Count; i++)
@@ -23,6 +22,7 @@ public class AbilityDetailPanel : MonoBehaviour
 			abilityDetail = abilityObject.AddComponent<AbilityDetail>();
 			abilityDetail.abilityIndex = i;
 			abilityDetail.abilityName = abilityList[i].abilityName;
+			abilityDetail.abilityObject = abilityList[i];
 		}
 	}
 }

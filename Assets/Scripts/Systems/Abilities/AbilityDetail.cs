@@ -9,4 +9,5 @@ public class AbilityDetail : MonoBehaviour
 {
 	public int abilityIndex;
 	public string abilityName;
+	public Ability abilityObject;
 }

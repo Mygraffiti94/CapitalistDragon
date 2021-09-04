@@ -10,6 +10,6 @@ public class Attack : Ability
 {
 	public override void Activate(CombatActor user, List<CombatActor> targets)
 	{
-		throw new System.NotImplementedException();
+		GameManager.instance.combat.text.text = user.actorName + " casts " + this.abilityName + " on " + targets[0];
 	}
 }

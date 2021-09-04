@@ -12,6 +12,6 @@ public class AbilityPanelButtonHandler : MonoBehaviour
 		AbilityDetail abilityDetail = gameObject.transform.GetComponent<AbilityDetail>();
 		CombatActor combatActor = GameManager.instance.combat.GetCurrentActor();
 		GameManager.instance.combat.text.text = "Select a target for " + abilityDetail.abilityName;
-		GameManager.instance.combat.EndTurn();
+		GameManager.instance.combat.usedAbility = abilityDetail.abilityObject;
 	}
 }
