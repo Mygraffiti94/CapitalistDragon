@@ -16,4 +16,9 @@ public class CombatActor : MonoBehaviour
 		actor = GetComponent<Actor>();
 		abilities = new List<Ability>(actor.abilities);
 	}
+
+	internal void TakeDamage(int damage)
+	{
+		actor.TakeDamage(damage);
+	}
 }

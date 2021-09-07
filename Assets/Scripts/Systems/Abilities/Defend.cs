@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Defend : Ability
 {
-	public override void Activate(CombatActor user, List<CombatActor> targets)
+	public override int Activate(CombatActor user, List<CombatActor> targets)
 	{
 		throw new System.NotImplementedException();
 	}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using TMPro;
 
 /// <summary>
@@ -10,14 +11,18 @@ public class Combat : MonoBehaviour
 {
 	[SerializeField] public AbilityDetailPanel abilityDetailPanel;
 	[SerializeField] public TextMeshProUGUI text;
-	private List<CombatActor> actorList;		// List of actors in combat in their turn order
-	public List<CombatActor> activeParty;		// Party list in its spawn order to keep track of targetted abilities.
-	public List<CombatActor> enemies;			// Enemy list in its spawn order to keep track of targetted abilites.
-	private int turnIndex;
+	[SerializeField] private AbilityController abilityController;
+	[SerializeField] public GameObject actionsPanel;
+	[HideInInspector] private List<CombatActor> actorList;		// List of actors in combat in their turn order
+	[HideInInspector] public List<CombatActor> activeParty;		// Party list in its spawn order to keep track of targetted abilities.
+	[HideInInspector] public List<CombatActor> enemies;			// Enemy list in its spawn order to keep track of targetted abilites.
+	[HideInInspector] private int turnIndex;
 	[HideInInspector] public CombatActor currentActor;
 	[HideInInspector] public List<CombatActor> targets;
 	[HideInInspector] public Ability usedAbility;
-	[HideInInspector] private bool startedTurn;
+	[HideInInspector] private bool startedTurn = false;
+	[HideInInspector] private bool beginNextTurn;
+	[HideInInspector] private int damage;
 
 	private void Awake()
 	{
@@ -32,11 +37,19 @@ public class Combat : MonoBehaviour
 
 		if(targets.Count < 1)
 			return;
-		else
+
+		text.text = currentActor.actorName + " uses " + usedAbility.abilityName + " on " + targets[0].actorName;
+
+		// Loop through and set the damage formula for each actor to be applied to
+		foreach(CombatActor actor in targets)
 		{
-			text.text = currentActor.actorName + " uses " + usedAbility.abilityName + " on " + targets[0].actorName;
-			EndTurn();
+			actor.actor.damageFormula = (FormulaInt) usedAbility.damageFormula;	
 		}
+		startedTurn = false;
+		actionsPanel.SetActive(false);
+		damage = usedAbility.Activate(currentActor, targets);
+		abilityController.TriggerAnimation(usedAbility, damage);
+		EndTurn();
 	}
 
 	public void InitiateCombat(Party party, List<CombatActor> encounter)
@@ -66,13 +79,17 @@ public class Combat : MonoBehaviour
 	public void BeginTurn(CombatActor actor)
 	{
 		currentActor = actor;
+		beginNextTurn = false;
 		if(actor.enemy == false)
 		{
 			abilityDetailPanel.Set(actor.abilities);
 			startedTurn = true;
 		}
 		else
+		{ 
+			actionsPanel.SetActive(true);
 			EndTurn();
+		}
 	}
 
 	public CombatActor GetCurrentActor()
@@ -98,7 +115,6 @@ public class Combat : MonoBehaviour
 		targets = null;
 		usedAbility = null;
 		startedTurn = false;
-
 		BeginTurn(actorList[turnIndex]);
 	}
 }

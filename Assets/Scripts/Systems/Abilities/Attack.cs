@@ -8,8 +8,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ability/Physical/Attack")]
 public class Attack : Ability
 {
-	public override void Activate(CombatActor user, List<CombatActor> targets)
+	[SerializeField] int damage = 100;
+
+	public override int Activate(CombatActor user, List<CombatActor> targets)
 	{
-		GameManager.instance.combat.text.text = user.actorName + " casts " + this.abilityName + " on " + targets[0];
+		foreach(CombatActor actor in targets)
+		{
+			actor.TakeDamage(damage);
+		}
+
+		return damage;
 	}
 }

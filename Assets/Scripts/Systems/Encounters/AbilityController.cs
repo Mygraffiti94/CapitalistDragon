@@ -5,19 +5,27 @@ using UnityEngine.EventSystems;
 
 public class AbilityController : MonoBehaviour
 {
-	Ability ability;
-	[SerializeField] private int positionIndex;
+	[HideInInspector] private int positionIndex;
 	[SerializeField] private List<GameObject> positionList;
+	[HideInInspector] private GameObject currentTarget;
+	[HideInInspector] private AbilityAnimator currentAbilityAnimator;
+	[HideInInspector] private DamageTextPopup damageTextPopup;
 
-	public void InitiateAbility(CombatActor _user, Ability _ability)
+	private void Awake()
 	{
-		ability = _ability;
+		currentTarget = new GameObject();
+		currentAbilityAnimator = new AbilityAnimator();
 	}
 
 	public void GetTarget()
 	{
+		// Get the targets selected and update the Combat instance to be aware of them
+		positionIndex = GetIndexOfButton();
 		GameManager.instance.combat.targets = new List<CombatActor>();
 		GameManager.instance.combat.targets.Add(GameManager.instance.combat.enemies[GetIndexOfButton()]);
+		currentTarget = positionList[positionIndex];
+		currentAbilityAnimator = currentTarget.GetComponent<AbilityAnimator>();
+		damageTextPopup = currentAbilityAnimator.damageTextPopup;
 	}
 
 	private int GetIndexOfButton()
@@ -29,5 +37,15 @@ public class AbilityController : MonoBehaviour
 		}
 
 		return -1;
+	}
+
+	/// <summary>
+	/// Method call to the AbilityAnimator object to trigger the animation running
+	/// </summary>
+	/// <param name="targetAbility"></param>
+	public void TriggerAnimation(Ability targetAbility, int damage)
+	{
+		currentAbilityAnimator.TriggerAnimation(targetAbility, damage);
+		damageTextPopup.ShowDamage(damage);
 	}
 }

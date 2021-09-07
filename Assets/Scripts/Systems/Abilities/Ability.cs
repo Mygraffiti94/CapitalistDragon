@@ -2,7 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum DamageType
+public enum AbilityAnimationNames
+{
+	PhysicalSlashOnce,
+	MagicalSingleHit
+}
+
+
+public enum DamageType
 {
 	Physical,
 	Fire,
@@ -14,7 +21,7 @@ enum DamageType
 	Holy
 }
 
-enum SpellTargetArea
+public enum SpellTargetArea
 { 
 	Single,
 	Row,
@@ -25,8 +32,13 @@ enum SpellTargetArea
 public abstract class Ability : ScriptableObject
 {
 	public string abilityName;
+	public Formula damageFormula;
+	public float numberOfFrames;
+	[SerializeField] public AbilityAnimationNames animationName;
+	[SerializeField] public DamageType damageType;
+	[SerializeField] public SpellTargetArea targetArea;
 
-	abstract public void Activate(CombatActor user, List<CombatActor> targets);
+	abstract public int Activate(CombatActor user, List<CombatActor> targets);
 	virtual public bool Check(CombatActor user)
 	{
 		return true;

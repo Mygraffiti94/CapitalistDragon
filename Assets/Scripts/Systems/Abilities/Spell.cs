@@ -8,8 +8,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ability/Magic/Spell")]
 public class Spell : Ability
 {
-	public override void Activate(CombatActor user, List<CombatActor> targets)
+	[SerializeField] int damage = 100;
+
+	public override int Activate(CombatActor user, List<CombatActor> targets)
 	{
-		throw new System.NotImplementedException();
+		foreach (CombatActor actor in targets)
+		{
+			actor.TakeDamage(damage);
+		}
+		
+		return damage;
 	}
 }

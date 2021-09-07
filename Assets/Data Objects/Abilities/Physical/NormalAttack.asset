@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: NormalAttack
   m_EditorClassIdentifier: 
   abilityName: Attack
+  damageFormula: {fileID: 11400000, guid: 8f35de18293fda647a0d59ee9ec4306e, type: 2}
+  animationName: Physical
+  damage: 100

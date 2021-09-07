@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a77404f83a03a845b06611a4e8cb4f6, type: 3}
-  m_Name: DoubleStrike
+  m_Script: {fileID: 11500000, guid: 46900c7ce375c01438a6125bfe10f6b9, type: 3}
+  m_Name: AttackFormula
   m_EditorClassIdentifier: 
-  abilityName: Double Strike
-  damageFormula: {fileID: 11400000, guid: 8f35de18293fda647a0d59ee9ec4306e, type: 2}
-  animationName: 0
-  damageType: 0
-  targetArea: 0
-  damage: 100
+  goldValue: {fileID: 11400000, guid: 58dea54f4a49b2c46b09191145c8bbc7, type: 2}

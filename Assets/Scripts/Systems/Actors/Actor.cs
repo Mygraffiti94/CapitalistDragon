@@ -8,6 +8,7 @@ public class Actor : MonoBehaviour
 	// Declarations
 	//------------------------------
 	[SerializeField] public ValueStructure	StatStructure;
+	[SerializeField] public FormulaInt damageFormula;		// Formula to be used when actor takes damage
 	public int level;
 	[HideInInspector] public StatsContainer	statList;
 	public Entity entity;
@@ -16,6 +17,13 @@ public class Actor : MonoBehaviour
 	void Start()
     {
 		Init(entity);
+	}
+
+	// Method call to apply the damage to actor when damaged
+	internal void TakeDamage(int damage)
+	{
+		GameManager.instance.combat.text.text = this.entity.entityName + " takes " + damage + " damage!";
+		damageFormula.Apply(statList, damage);
 	}
 
 	#region Init Methods

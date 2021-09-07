@@ -10,10 +10,12 @@ public abstract class Formula : ScriptableObject
 public abstract class FormulaInt : Formula
 {
 	public abstract int Calculate(StatsContainer stats);
+	public virtual void Apply(StatsContainer statsContainer, int amount) { }
 }
 
 public abstract class FormulaFloat : Formula
 {
 	public abstract float Calculate(StatsContainer stats);
+	public virtual void Apply(StatsContainer statsContainer, float amount) { }
 }
 

@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: MagicMissile
   m_EditorClassIdentifier: 
   abilityName: Magic Missile
+  damageFormula: {fileID: 11400000, guid: 8f35de18293fda647a0d59ee9ec4306e, type: 2}
+  animationName: 1
+  damageType: 0
+  targetArea: 0
+  damage: 100
